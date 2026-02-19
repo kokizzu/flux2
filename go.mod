@@ -13,10 +13,10 @@ require (
 	github.com/fluxcd/cli-utils v0.37.1-flux.1
 	github.com/fluxcd/go-git-providers v0.26.0
 	github.com/fluxcd/helm-controller/api v1.4.5
-	github.com/fluxcd/image-automation-controller/api v1.0.4
-	github.com/fluxcd/image-reflector-controller/api v1.0.4
-	github.com/fluxcd/kustomize-controller/api v1.7.3
-	github.com/fluxcd/notification-controller/api v1.7.5
+	github.com/fluxcd/image-automation-controller/api v1.1.0
+	github.com/fluxcd/image-reflector-controller/api v1.1.0
+	github.com/fluxcd/kustomize-controller/api v1.8.0
+	github.com/fluxcd/notification-controller/api v1.8.0
 	github.com/fluxcd/pkg/apis/event v0.24.0
 	github.com/fluxcd/pkg/apis/meta v1.25.0
 	github.com/fluxcd/pkg/auth v0.38.2
@@ -31,8 +31,8 @@ require (
 	github.com/fluxcd/pkg/ssh v0.24.0
 	github.com/fluxcd/pkg/tar v0.17.0
 	github.com/fluxcd/pkg/version v0.12.0
-	github.com/fluxcd/source-controller/api v1.7.4
-	github.com/fluxcd/source-watcher/api/v2 v2.0.3
+	github.com/fluxcd/source-controller/api v1.8.0
+	github.com/fluxcd/source-watcher/api/v2 v2.1.0
 	github.com/go-git/go-git/v5 v5.16.5
 	github.com/go-logr/logr v1.4.3
 	github.com/gonvenience/bunt v1.4.2
@@ -243,7 +243,7 @@ require (
 	go.opentelemetry.io/proto/otlp v1.8.0 // indirect
 	go.yaml.in/yaml/v2 v2.4.3 // indirect
 	go.yaml.in/yaml/v3 v3.0.4 // indirect
-	golang.org/x/net v0.49.0 // indirect
+	golang.org/x/net v0.50.0 // indirect
 	golang.org/x/oauth2 v0.35.0 // indirect
 	golang.org/x/sync v0.19.0 // indirect
 	golang.org/x/sys v0.41.0 // indirect
