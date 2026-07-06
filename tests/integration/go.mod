@@ -11,10 +11,10 @@ require (
 	github.com/fluxcd/image-reflector-controller/api v1.1.2
 	github.com/fluxcd/kustomize-controller/api v1.8.5
 	github.com/fluxcd/notification-controller/api v1.8.4
-	github.com/fluxcd/pkg/apis/event v0.27.1
-	github.com/fluxcd/pkg/apis/meta v1.30.1
+	github.com/fluxcd/pkg/apis/event v0.28.0
+	github.com/fluxcd/pkg/apis/meta v1.31.0
 	github.com/fluxcd/pkg/git v0.52.0
-	github.com/fluxcd/pkg/runtime v0.110.1
+	github.com/fluxcd/pkg/runtime v0.111.0
 	github.com/fluxcd/source-controller/api v1.8.5
 	github.com/fluxcd/test-infra/tftestenv v0.0.0-20260419142339-c6535d1fff77
 	github.com/go-git/go-git/v5 v5.19.1
@@ -55,7 +55,7 @@ require (
 	github.com/evanphx/json-patch/v5 v5.9.11 // indirect
 	github.com/felixge/httpsnoop v1.0.4 // indirect
 	github.com/fluxcd/pkg/apis/acl v0.10.0 // indirect
-	github.com/fluxcd/pkg/apis/kustomize v1.19.1 // indirect
+	github.com/fluxcd/pkg/apis/kustomize v1.20.0 // indirect
 	github.com/fluxcd/pkg/ssh v0.25.0 // indirect
 	github.com/fluxcd/pkg/version v0.16.0 // indirect
 	github.com/fxamacker/cbor/v2 v2.9.0 // indirect
