@@ -25,7 +25,7 @@ require (
 	github.com/fluxcd/pkg/envsubst v1.7.0
 	github.com/fluxcd/pkg/git v0.52.0
 	github.com/fluxcd/pkg/kustomize v1.38.0
-	github.com/fluxcd/pkg/oci v0.68.0
+	github.com/fluxcd/pkg/oci v0.69.0
 	github.com/fluxcd/pkg/runtime v0.111.0
 	github.com/fluxcd/pkg/sourceignore v0.18.0
 	github.com/fluxcd/pkg/ssa v0.77.0
