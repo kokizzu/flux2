@@ -115,7 +115,7 @@ for the required commands, which will be used for specifying the value of `.spec
 
 The flag shall also apply to all possible proxy configurations. If the flag `--insecure-allow-http` is set to
 `false`, then specifying the `HTTP_PROXY` environment variable to the controller will lead to the controller
-exiting with a failure on startup. This also applies for when the `HTTPS_PROXY` enviornment variable's value is
+exiting with a failure on startup. This also applies for when the `HTTPS_PROXY` environment variable's value is
 a URL that has `http` as its scheme.
 
 Similarly, if a proxy is specified using the object's API, such as through `.spec.secretRef` in `Provider` in the
