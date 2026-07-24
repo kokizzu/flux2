@@ -28,6 +28,33 @@ jobs:
       - name: Setup flux
         uses: ./action
 
+  version-file:
+    runs-on: ubuntu-latest
+    name: action version-file on ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@df4cb1c069e1874edd31b4311f1884172cec0e10 # v6.0.3
+      - name: Setup flux from a plain version file
+        uses: ./action
+        with:
+          version-file: action/testdata/.flux-version
+      - name: Assert plain version file
+        shell: bash
+        run: |
+          set -euo pipefail
+          flux -v
+          flux -v | grep -q '2.8.8'
+      - name: Setup flux from a .tool-versions file
+        uses: ./action
+        with:
+          version-file: action/testdata/.tool-versions
+      - name: Assert .tool-versions file
+        shell: bash
+        run: |
+          set -euo pipefail
+          flux -v
+          flux -v | grep -q '2.9.2'
+
   plugins:
     runs-on: ubuntu-latest
     name: action plugins on ubuntu-latest
