@@ -8,6 +8,13 @@ inputs:
   version:
     description: "Flux version e.g. 2.0.0 (defaults to latest stable release)"
     required: false
+  version-file:
+    description: >
+      Path to a file specifying the Flux version to install. Accepts a
+      `.tool-versions` file (asdf format, reads the `flux` entry) or a plain
+      text file containing a single version such as `2.0.0`. Ignored when
+      `version` is set.
+    required: false
   arch:
     description: "arch can be amd64, arm64 or arm"
     required: false
@@ -44,9 +51,26 @@ runs:
       id: setup-flux-bin
       env:
         VERSION: "${{ inputs.version }}"
+        VERSION_FILE: "${{ inputs.version-file }}"
         FLUX_TOOL_DIR: "${{ inputs.bindir }}"
         TOKEN: "${{ inputs.token }}"
       run: |
+        if [[ -z "$VERSION" ]] && [[ -n "$VERSION_FILE" ]]; then
+          if [[ ! -f "$VERSION_FILE" ]]; then
+            echo "version-file '$VERSION_FILE' not found"
+            exit 1
+          fi
+          if [[ "$(basename "$VERSION_FILE")" == ".tool-versions" ]]; then
+            VERSION=$(grep -E '^[[:space:]]*flux2?[[:space:]]' "$VERSION_FILE" | head -n1 | awk '{print $2}' | tr -d '[:space:]')
+          else
+            VERSION=$(grep -vE '^[[:space:]]*(#|$)' "$VERSION_FILE" | head -n1 | tr -d '[:space:]')
+          fi
+          if [[ -z "$VERSION" ]]; then
+            echo "Unable to read Flux version from '$VERSION_FILE'"
+            exit 1
+          fi
+        fi
+
         if [[ -z "$VERSION" ]] || [[ "$VERSION" = "latest" ]]; then
           if [[ "${TOKEN}" != '' ]]; then
             VERSION=$(curl -fsSL -H "Authorization: token ${TOKEN}" https://api.github.com/repos/fluxcd/flux2/releases/latest | grep tag_name | cut -d '"' -f 4)

@@ -12,6 +12,22 @@ steps:
     run: flux version --client
 ```
 
+To pin the Flux version from a file instead of hardcoding it in the workflow:
+
+```yaml
+steps:
+  - name: Setup Flux CLI
+    uses: fluxcd/flux2/action@main
+    with:
+      version-file: .flux-version
+  - name: Run Flux CLI
+    run: flux version --client
+```
+
+The `version-file` input accepts a `.tool-versions` file (asdf format, reads the
+`flux` entry) or a plain text file containing a single version such as `2.0.0`.
+It is ignored when `version` is set.
+
 To install Flux plugins alongside the CLI:
 
 ```yaml
